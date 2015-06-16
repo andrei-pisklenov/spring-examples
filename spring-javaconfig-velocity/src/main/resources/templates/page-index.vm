@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Simple Spring application with JAVA config and Velocity templates</title>
+
+    <style type="text/css">
+            /* not today */
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+    <h3>Add new</h3>
+
+    <form action="/" method="POST">
+        <label for="userName">Name: </label><input type="text" name="userName">
+        <label for="email">Email: </label><input type="text" name="email">
+        <input type="submit" value="Add">
+    </form>
+
+    <hr>
+
+    <h3>User list</h3>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        </thead>
+        <tbody>
+            #foreach($user in $userList)
+            <tr>
+                <td>
+                    $user.getId()
+                </td>
+                <td>
+                    $user.getUserName()
+                </td>
+                <td>
+                    $user.getEmail()
+                </td>
+                <td>
+                    <a href="/deleteuser/$user.getId()">[delete]</a>
+                </td>
+            </tr>
+            #end
+        </tbody>
+    </table>
+</div>
+<!-- /container -->
+
+</body>
+</html>
